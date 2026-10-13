@@ -5,6 +5,11 @@ so you can use it for logs ingestion.
 
 ## Run
 ```
+git fetch https://github.com/batamladen/Wizard-of-Logz.git
+```
+
+
+```
 python app.py
 ```
 You need Python 3.9 or newer. Tkinter comes with the standard Windows installer, so there's nothing to pip install.
