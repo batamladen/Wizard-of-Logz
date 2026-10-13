@@ -15,9 +15,9 @@ python app.py
 You need Python 3.9 or newer. Tkinter comes with the standard Windows installer, so there's nothing to pip install.
 
 ## Pre-Made Example Project for Clearance
-An pre made project was already made for clearer understanding what goes where. Once the app loads you can hit "load project" and select example_project.json from the mocklogforge folder.
+An pre made project was already made for clearer understanding what goes where. Once the app loads you can hit *load project* and select example_project.json from the wizardoflogz folder.
 
-Later when you create your projects, you can save them by clicking "Save Project" and open it whenever.
+Later when you create your projects, you can save them by clicking *Save Project* and open it whenever.
 
 ## Tabs
 - **Generate**: start time, min/max gap between logs, seed, and batches (for example 17 legit + 3 exfil).
