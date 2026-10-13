@@ -1,0 +1,91 @@
+{
+  "table": "DeviceLogonEvents",
+  "source": "https://learn.microsoft.com/defender-xdr/advanced-hunting-devicelogonevents-table",
+  "columns": [
+    {
+      "name": "Timestamp",
+      "type": "datetime",
+      "gen": "timestamp"
+    },
+    {
+      "name": "TimeGenerated",
+      "type": "datetime",
+      "gen": "ref:Timestamp"
+    },
+    {
+      "name": "DeviceId",
+      "type": "string",
+      "gen": "device.mdeId"
+    },
+    {
+      "name": "DeviceName",
+      "type": "string",
+      "gen": "device.fqdn"
+    },
+    {
+      "name": "ActionType",
+      "type": "string",
+      "gen": "choice:LogonSuccess*9|LogonFailed*1"
+    },
+    {
+      "name": "LogonType",
+      "type": "string",
+      "gen": "choice:Interactive|RemoteInteractive|Network|Unlock"
+    },
+    {
+      "name": "AccountDomain",
+      "type": "string",
+      "gen": "user.domain"
+    },
+    {
+      "name": "AccountName",
+      "type": "string",
+      "gen": "user.sam"
+    },
+    {
+      "name": "AccountSid",
+      "type": "string",
+      "gen": "user.sid"
+    },
+    {
+      "name": "Protocol",
+      "type": "string",
+      "gen": "choice:Kerberos|NTLM|Negotiate"
+    },
+    {
+      "name": "FailureReason",
+      "type": "string",
+      "gen": ""
+    },
+    {
+      "name": "IsLocalAdmin",
+      "type": "bool",
+      "gen": "user.isLocalAdmin"
+    },
+    {
+      "name": "RemoteIP",
+      "type": "string",
+      "gen": ""
+    },
+    {
+      "name": "RemoteDeviceName",
+      "type": "string",
+      "gen": ""
+    },
+    {
+      "name": "LogonId",
+      "type": "long",
+      "gen": "int:100000-999999"
+    },
+    {
+      "name": "InitiatingProcessFileName",
+      "type": "string",
+      "gen": "const:lsass.exe"
+    },
+    {
+      "name": "ReportId",
+      "type": "long",
+      "gen": "int:1-100000"
+    }
+  ]
+}

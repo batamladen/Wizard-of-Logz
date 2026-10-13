@@ -1,0 +1,101 @@
+{
+  "table": "DeviceProcessEvents",
+  "source": "https://learn.microsoft.com/defender-xdr/advanced-hunting-deviceprocessevents-table",
+  "columns": [
+    {
+      "name": "Timestamp",
+      "type": "datetime",
+      "gen": "timestamp"
+    },
+    {
+      "name": "TimeGenerated",
+      "type": "datetime",
+      "gen": "ref:Timestamp"
+    },
+    {
+      "name": "DeviceId",
+      "type": "string",
+      "gen": "device.mdeId"
+    },
+    {
+      "name": "DeviceName",
+      "type": "string",
+      "gen": "device.fqdn"
+    },
+    {
+      "name": "ActionType",
+      "type": "string",
+      "gen": "const:ProcessCreated"
+    },
+    {
+      "name": "FileName",
+      "type": "string",
+      "gen": "choice:cmd.exe|powershell.exe|svchost.exe|conhost.exe"
+    },
+    {
+      "name": "FolderPath",
+      "type": "string",
+      "gen": "template:C:\\Windows\\System32\\{row.FileName}"
+    },
+    {
+      "name": "SHA256",
+      "type": "string",
+      "gen": "hex:64"
+    },
+    {
+      "name": "ProcessId",
+      "type": "long",
+      "gen": "int:1000-20000"
+    },
+    {
+      "name": "ProcessCommandLine",
+      "type": "string",
+      "gen": "template:{row.FileName}"
+    },
+    {
+      "name": "AccountDomain",
+      "type": "string",
+      "gen": "user.domain"
+    },
+    {
+      "name": "AccountName",
+      "type": "string",
+      "gen": "user.sam"
+    },
+    {
+      "name": "AccountSid",
+      "type": "string",
+      "gen": "user.sid"
+    },
+    {
+      "name": "AccountUpn",
+      "type": "string",
+      "gen": "user.upn"
+    },
+    {
+      "name": "InitiatingProcessFileName",
+      "type": "string",
+      "gen": "choice:explorer.exe|services.exe"
+    },
+    {
+      "name": "InitiatingProcessId",
+      "type": "long",
+      "gen": "int:500-9000"
+    },
+    {
+      "name": "InitiatingProcessAccountName",
+      "type": "string",
+      "gen": "user.sam"
+    },
+    {
+      "name": "InitiatingProcessAccountUpn",
+      "type": "string",
+      "gen": "user.upn"
+    },
+    {
+      "name": "ReportId",
+      "type": "long",
+      "gen": "int:1-100000"
+    }
+  ]
+}

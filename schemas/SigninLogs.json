@@ -1,0 +1,116 @@
+{
+  "table": "SigninLogs",
+  "source": "https://learn.microsoft.com/azure/azure-monitor/reference/tables/signinlogs",
+  "columns": [
+    {
+      "name": "TimeGenerated",
+      "type": "datetime",
+      "gen": "timestamp"
+    },
+    {
+      "name": "OperationName",
+      "type": "string",
+      "gen": "const:Sign-in activity"
+    },
+    {
+      "name": "Category",
+      "type": "string",
+      "gen": "const:SignInLogs"
+    },
+    {
+      "name": "UserPrincipalName",
+      "type": "string",
+      "gen": "user.upn"
+    },
+    {
+      "name": "UserDisplayName",
+      "type": "string",
+      "gen": "user.name"
+    },
+    {
+      "name": "UserId",
+      "type": "string",
+      "gen": "user.objectId"
+    },
+    {
+      "name": "AppDisplayName",
+      "type": "string",
+      "gen": "choice:Azure Portal|Microsoft Teams|Office 365 Exchange Online"
+    },
+    {
+      "name": "AppId",
+      "type": "string",
+      "gen": "guid"
+    },
+    {
+      "name": "IPAddress",
+      "type": "string",
+      "gen": "device.public_ip"
+    },
+    {
+      "name": "Location",
+      "type": "string",
+      "gen": "const:BG"
+    },
+    {
+      "name": "ResultType",
+      "type": "string",
+      "gen": "choice:0*9|50126*1"
+    },
+    {
+      "name": "ResultDescription",
+      "type": "string",
+      "gen": ""
+    },
+    {
+      "name": "ClientAppUsed",
+      "type": "string",
+      "gen": "const:Browser"
+    },
+    {
+      "name": "UserAgent",
+      "type": "string",
+      "gen": "const:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36"
+    },
+    {
+      "name": "DeviceDetail",
+      "type": "dynamic",
+      "gen": "template:{\"deviceId\":\"{device.id}\",\"displayName\":\"{device.name}\",\"operatingSystem\":\"{device.os}\",\"browser\":\"Chrome 129\"}"
+    },
+    {
+      "name": "LocationDetails",
+      "type": "dynamic",
+      "gen": "template:{\"city\":\"Sofia\",\"countryOrRegion\":\"BG\"}"
+    },
+    {
+      "name": "Status",
+      "type": "dynamic",
+      "gen": "template:{\"errorCode\":{row.ResultType}}"
+    },
+    {
+      "name": "ConditionalAccessStatus",
+      "type": "string",
+      "gen": "choice:success|notApplied"
+    },
+    {
+      "name": "AuthenticationRequirement",
+      "type": "string",
+      "gen": "choice:singleFactorAuthentication|multiFactorAuthentication"
+    },
+    {
+      "name": "RiskLevelDuringSignIn",
+      "type": "string",
+      "gen": "const:none"
+    },
+    {
+      "name": "CorrelationId",
+      "type": "string",
+      "gen": "guid"
+    },
+    {
+      "name": "Id",
+      "type": "string",
+      "gen": "guid"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "table": "SecurityEvent",
+  "source": "https://learn.microsoft.com/azure/azure-monitor/reference/tables/securityevent",
+  "columns": [
+    {
+      "name": "TimeGenerated",
+      "type": "datetime",
+      "gen": "timestamp"
+    },
+    {
+      "name": "Computer",
+      "type": "string",
+      "gen": "device.fqdn"
+    },
+    {
+      "name": "EventSourceName",
+      "type": "string",
+      "gen": "const:Microsoft-Windows-Security-Auditing"
+    },
+    {
+      "name": "Channel",
+      "type": "string",
+      "gen": "const:Security"
+    },
+    {
+      "name": "EventID",
+      "type": "int",
+      "gen": "const:4624"
+    },
+    {
+      "name": "Activity",
+      "type": "string",
+      "gen": "const:4624 - An account was successfully logged on."
+    },
+    {
+      "name": "Account",
+      "type": "string",
+      "gen": "template:{user.domain}\\{user.sam}"
+    },
+    {
+      "name": "AccountType",
+      "type": "string",
+      "gen": "const:User"
+    },
+    {
+      "name": "TargetUserName",
+      "type": "string",
+      "gen": "user.sam"
+    },
+    {
+      "name": "TargetDomainName",
+      "type": "string",
+      "gen": "user.domain"
+    },
+    {
+      "name": "SubjectUserName",
+      "type": "string",
+      "gen": "template:{device.name}$"
+    },
+    {
+      "name": "LogonType",
+      "type": "int",
+      "gen": "choice:2|3|10"
+    },
+    {
+      "name": "LogonProcessName",
+      "type": "string",
+      "gen": "const:User32"
+    },
+    {
+      "name": "AuthenticationPackageName",
+      "type": "string",
+      "gen": "const:Negotiate"
+    },
+    {
+      "name": "IpAddress",
+      "type": "string",
+      "gen": "device.ip"
+    },
+    {
+      "name": "WorkstationName",
+      "type": "string",
+      "gen": "device.name"
+    },
+    {
+      "name": "Status",
+      "type": "string",
+      "gen": ""
+    },
+    {
+      "name": "SubStatus",
+      "type": "string",
+      "gen": ""
+    }
+  ]
+}

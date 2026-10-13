@@ -1,0 +1,91 @@
+{
+  "table": "DeviceNetworkEvents",
+  "source": "https://learn.microsoft.com/defender-xdr/advanced-hunting-devicenetworkevents-table",
+  "columns": [
+    {
+      "name": "Timestamp",
+      "type": "datetime",
+      "gen": "timestamp"
+    },
+    {
+      "name": "TimeGenerated",
+      "type": "datetime",
+      "gen": "ref:Timestamp"
+    },
+    {
+      "name": "DeviceId",
+      "type": "string",
+      "gen": "device.mdeId"
+    },
+    {
+      "name": "DeviceName",
+      "type": "string",
+      "gen": "device.fqdn"
+    },
+    {
+      "name": "ActionType",
+      "type": "string",
+      "gen": "choice:ConnectionSuccess*9|ConnectionFailed*1"
+    },
+    {
+      "name": "RemoteIP",
+      "type": "string",
+      "gen": "pool:legit_ips"
+    },
+    {
+      "name": "RemotePort",
+      "type": "int",
+      "gen": "choice:443*8|80*2"
+    },
+    {
+      "name": "RemoteUrl",
+      "type": "string",
+      "gen": ""
+    },
+    {
+      "name": "RemoteIPType",
+      "type": "string",
+      "gen": "const:Public"
+    },
+    {
+      "name": "LocalIP",
+      "type": "string",
+      "gen": "device.ip"
+    },
+    {
+      "name": "LocalPort",
+      "type": "int",
+      "gen": "int:49152-65535"
+    },
+    {
+      "name": "LocalIPType",
+      "type": "string",
+      "gen": "const:Private"
+    },
+    {
+      "name": "Protocol",
+      "type": "string",
+      "gen": "const:Tcp"
+    },
+    {
+      "name": "InitiatingProcessFileName",
+      "type": "string",
+      "gen": "choice:msedge.exe|chrome.exe|ms-teams.exe"
+    },
+    {
+      "name": "InitiatingProcessAccountName",
+      "type": "string",
+      "gen": "user.sam"
+    },
+    {
+      "name": "InitiatingProcessAccountUpn",
+      "type": "string",
+      "gen": "user.upn"
+    },
+    {
+      "name": "ReportId",
+      "type": "long",
+      "gen": "int:1-100000"
+    }
+  ]
+}

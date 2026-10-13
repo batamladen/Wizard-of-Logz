@@ -1,0 +1,131 @@
+{
+  "table": "CommonSecurityLog",
+  "source": "https://learn.microsoft.com/azure/azure-monitor/reference/tables/commonsecuritylog",
+  "columns": [
+    {
+      "name": "TimeGenerated",
+      "type": "datetime",
+      "gen": "timestamp"
+    },
+    {
+      "name": "DeviceVendor",
+      "type": "string",
+      "gen": "const:Palo Alto Networks"
+    },
+    {
+      "name": "DeviceProduct",
+      "type": "string",
+      "gen": "const:PAN-OS"
+    },
+    {
+      "name": "DeviceVersion",
+      "type": "string",
+      "gen": "const:10.2.0"
+    },
+    {
+      "name": "DeviceEventClassID",
+      "type": "string",
+      "gen": "const:TRAFFIC"
+    },
+    {
+      "name": "Activity",
+      "type": "string",
+      "gen": "const:TRAFFIC"
+    },
+    {
+      "name": "LogSeverity",
+      "type": "string",
+      "gen": "choice:1*8|3*2"
+    },
+    {
+      "name": "DeviceAction",
+      "type": "string",
+      "gen": "choice:allow*9|deny*1"
+    },
+    {
+      "name": "ApplicationProtocol",
+      "type": "string",
+      "gen": "choice:ssl|web-browsing|dns"
+    },
+    {
+      "name": "Protocol",
+      "type": "string",
+      "gen": "choice:TCP*8|UDP*2"
+    },
+    {
+      "name": "SourceIP",
+      "type": "string",
+      "gen": "device.ip"
+    },
+    {
+      "name": "SourcePort",
+      "type": "int",
+      "gen": "int:49152-65535"
+    },
+    {
+      "name": "SourceHostName",
+      "type": "string",
+      "gen": "device.name"
+    },
+    {
+      "name": "SourceUserName",
+      "type": "string",
+      "gen": "user.upn"
+    },
+    {
+      "name": "SourceMACAddress",
+      "type": "string",
+      "gen": "device.mac"
+    },
+    {
+      "name": "SourceTranslatedAddress",
+      "type": "string",
+      "gen": "device.public_ip"
+    },
+    {
+      "name": "DestinationIP",
+      "type": "string",
+      "gen": "pool:legit_ips"
+    },
+    {
+      "name": "DestinationPort",
+      "type": "int",
+      "gen": "choice:443*8|80*2"
+    },
+    {
+      "name": "DestinationHostName",
+      "type": "string",
+      "gen": ""
+    },
+    {
+      "name": "SentBytes",
+      "type": "long",
+      "gen": "int:500-50000"
+    },
+    {
+      "name": "ReceivedBytes",
+      "type": "long",
+      "gen": "int:2000-500000"
+    },
+    {
+      "name": "DeviceName",
+      "type": "string",
+      "gen": "const:PA-FW01"
+    },
+    {
+      "name": "Computer",
+      "type": "string",
+      "gen": "const:syslog-fwd01"
+    },
+    {
+      "name": "RequestURL",
+      "type": "string",
+      "gen": ""
+    },
+    {
+      "name": "Message",
+      "type": "string",
+      "gen": ""
+    }
+  ]
+}
