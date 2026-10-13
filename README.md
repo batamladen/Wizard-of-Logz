@@ -1,4 +1,4 @@
-# Mock Log Forge
+# Wizard of Logz
 
 Mock log generator for Microsoft Sentinel / Defender XDR tables. Output is a JSON array,
 so you can use it for logs ingestion.
